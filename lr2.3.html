@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Сума зарплат</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f9fd;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      display: inline-block;
+      font-size: 20px;
+      background-color: #ecf0f1;
+      border-left: 6px solid #3498db;
+      border-radius: 5px;
+      color: #2d3436;
+    }
+  </style>
+</head>
+<body>
+  <h2>Підрахунок зарплати ІТ-команди</h2>
+  <button onclick="calculateSalaries()">Порахувати суму</button>
+  <div class="result" id="salaryResult"></div>
+
+  <script>
+    function calculateSalaries() {
+      let salaries = {
+        Jarik: 1000,
+        Anna: 1600,
+        Miko: 1300
+      };
+      let sum = 0;
+      for (let key in salaries) {
+        sum += salaries[key];
+      }
+
+      document.getElementById("salaryResult").innerHTML =
+        "💰 Загальна сума зарплат: <strong>" + sum + "</strong> грн";
+    }
+  </script>
+</body>
+</html>

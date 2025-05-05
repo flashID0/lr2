@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Перевірка об'єкта</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      text-align: center;
+      padding: 40px;
+    }
+    h2 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #333;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h2>Перевірка, чи об'єкт порожній</h2>
+  <button onclick="checkEmpty()">Перевірити об'єкт</button>
+  <div class="result" id="resultBox"></div>
+
+  <script>
+    function isEmpty(obj) {
+      for (let key in obj) {
+        return false;
+      }
+      return true;
+    }
+
+    function checkEmpty() {
+      let schedule = {};
+      let result = document.getElementById('resultBox');
+
+      let initial = isEmpty(schedule);
+      schedule["8:30"] = "Вставай";
+      let afterAdd = isEmpty(schedule);
+
+      result.innerHTML = `
+        <p><strong>Чи порожній об'єкт спочатку?</strong> ${initial ? "Так" : "Ні"}</p>
+        <p><strong>Чи порожній об'єкт після додавання?</strong> ${afterAdd ? "Так" : "Ні"}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
